@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Directed Conversation</title>
+
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/app.css">
+
+	<script src="objectdetect/compatibility.js"></script>
+	<script src="objectdetect/smoother.js"></script>
+	<script src="objectdetect/objectdetect.js"></script>
+	<script src="objectdetect/objectdetect.frontalface.js"></script>
+	<script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+	<script src="objectdetect/jquery.objectdetect.js"></script>
+
+	<script src="js/tracker.js"></script>
+	<script src="js/textarea-helper.js"></script>
+	<script src="js/listen.js"></script>
+
+</head>
+
+<body>
+
+
+	<div id="panel">
+		<video id="video"></video>
+		<div id="face"></div>
+
+		<div id="mic" style="display:none">
+
+			<div id="backcircle"></div>
+			<span id="recording"><img src="img/microphone_white.png"/></span>
+
+		</div>
+	</div>
+
+	<div id="response">
+		<div class="content">
+			<textarea id="speech-page-content" name="pageContent"></textarea>
+
+			<!--
+			<div class="message">
+				About 15 degrees and raining
+			</div>
+			-->
+		</div>
+
+
+
+	</div>
+
+</body>
+</html>
