@@ -49,12 +49,32 @@ var startRecognition = function() {
 };
 
 
+var showResult = function(text){
+  clearResult();
+  $('.content').append($('<div />').text(text).addClass("message"));
+  setTimeout(function(){ textArea.val(" ");}, 400);
+};
+
+var clearResult = function(){
+  $('.message').remove();
+};
+
+var showWeather = function(){
+  showResult("The temperature is currently 45 degrees");
+};
+
+var showTime = function(){
+  showResult("It's currently 11:24pm");
+}
+
 
 
 
 $(window).load(function() {
 
+
   var update = function(){
+
     if (TRACKER.detected == true){
       textArea.focus();
       textArea.addClass('listening');
@@ -64,7 +84,16 @@ $(window).load(function() {
       // textArea.removeClass('listening');
     }
 
+    if (textArea.val().indexOf("weather") > -1){
+      showWeather();
+    }
+
+    if (textArea.val().indexOf("time") > -1){
+      showTime();
+    }
+
     setTimeout(update, 800);
+
   }
 
   var isStillGone = function(){
@@ -73,6 +102,7 @@ $(window).load(function() {
       // do nothing
     }else{
       textArea.val("");
+      clearResult();
       textArea.removeClass('listening');
       textArea.addClass('nolisten');
 
